@@ -1,0 +1,21 @@
+YY='http://www.iyuji.cn/iyuji/s/VlVtUFJyd2lsNVNPZVpnV25pd0lCZz09/1628932647115494'
+local yy = gg.makeRequest(YY).content-------版权川川
+local yya = yy:match('【状态】(.-)【状态】')------脚本的开关状态
+local yyb = yy:match('【公告】(.-)【公告】')------脚本的公告
+local yyc = yy:match('【脚本】(.-)【脚本】')------你脚本的链接
+local yyd = yy:match('【群号】(.-)【群号】')------这是脚本结束后的文字可以留你的反馈群
+local yye = yy:match('【关闭后的公告】(.-)【关闭后的公告】')------脚本停止使用后的公告
+local yyf = yy:match('【QQ】(.-)【QQ】')------这里是你的QQ
+if yya=="开"then
+gg.alert(yyb,"进入并复制作者QQ")
+gg.copyText(yyf)
+gg.toast("复制成功")
+pcall(load(yyc))
+os.exit(yyd) 
+ end
+if yya=="关"then
+gg.alert(yye,"确定并复制作者QQ")
+gg.copyText(yyf)
+gg.toast("复制成功")
+os.exit(yyd) 
+end
