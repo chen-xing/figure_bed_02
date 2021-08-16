@@ -1,0 +1,40 @@
+----[[🌈 by  快猫瑶瑶  🌈]]----
+yaoyao ="http://www.iyuji.cn/iyuji/s/YlRBcG9OSWMvZmMyZjdMdXFBQnAvZz09/1626748131561252"
+
+local y = gg.makeRequest(yaoyao).content
+
+local y1 = y:match('【状态】(.-)【状态】')
+
+local y2 = y:match('【公告】(.-)【公告】')
+
+local y3 = gg.makeRequest(yaoyao).content:match('<div class="read_txt">阅读&nbsp; (.-)</div>')
+
+function Password(mima)
+  key = gg.prompt({"输入脚本密码:"},nil,{'text'})
+  if key ~= nil or key[1] ~= nil then
+    if key[1]==mima==false then
+      exit(print("错误: 密码不正确"))
+    end
+   else
+     exit(print("错误: 密码未确认/密码未完整"))
+  end
+end
+
+if y:match("【设置密码】(.-)【设置密码】")=="开" then
+    Password(y:match("【密码】(.-)【密码】"))
+end
+
+if y1=="开" then
+gg.alert("启动次数:"..y3.."次\n"..y2)
+else
+if y1=="关" then
+os.exit(gg.alert("作者已关闭使用"))
+end
+end
+
+lianjie = gg.makeRequest("这里填你的脚本链接").content
+pcall(load(lianjie))
+
+----[[🌈 by  快猫瑶瑶  🌈]]----
+----[[🌈  请勿⭕钱 🌈]]----
+----[[🌈 二改使用请留名🌈]]----
